@@ -1,0 +1,19 @@
+%h1 User Profile
+
+= form_for @user do |f|
+
+  %ul
+    %li= f.label :First_Name
+    = f.text_field :firstname
+
+    %li= f.label :Last_Name
+    = f.text_field :lastname
+
+    %li= f.label :email
+    = f.text_field :email
+
+    %li= f.label :account_created
+    = f.text_field :created_at
+
+    %li= f.label :reviews
+    = f.text_field :reviews
