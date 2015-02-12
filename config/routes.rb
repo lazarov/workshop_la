@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/show'
-  get 'users/:id', :to => 'users#show', :as => :user
+  #get 'users/:id', :to => 'users#show', :as => :user
 
   devise_for :admins
   devise_for :users
