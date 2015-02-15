@@ -1,5 +1,5 @@
 %p#notice= notice
-%p#error= flash.now[:error]
+%p#error= flash[:error]
 
 %p
   %b Title:
@@ -20,6 +20,8 @@
 
 = render reviews
 
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
+%br
+
+= link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
 
 = link_to 'Back', category_products_path, class: 'btn btn-primary'

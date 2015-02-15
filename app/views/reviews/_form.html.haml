@@ -10,5 +10,5 @@
     = f.text_area :content, class: 'form-control'
   .form-group
     = f.input :rating, collection: 1..5, class: 'form-control'
-
-  = f.submit 'Save', class: 'btn btn-success'
+  - if user_signed_in?
+    = f.submit 'Save', class: 'btn btn-success'

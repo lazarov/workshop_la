@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   def is_owner
   #  binding.pry
     if !signed_in? || current_user.id != product.user_id
-      binding.pry
     flash[:error] = 'You are not allowed to edit this product.'
       redirect_to(category_product_url(category, product))
     end

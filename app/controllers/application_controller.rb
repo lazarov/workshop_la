@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
 
+
   def require_admin
     if !current_user.admin?
       redirect_to('/users/sign_in')
+    end
+  end
+
+  def allowed?
+    if signed_in? && current_user.id == product.user_id
     end
   end
 

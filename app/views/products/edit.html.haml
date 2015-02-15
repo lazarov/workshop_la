@@ -1,6 +1,8 @@
-%h1 Editing product
 %p#notice= notice
-%p#= error
+%p#error= flash[:error]
+
+%h1 Editing product
+
 
 
 = render 'form'

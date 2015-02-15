@@ -7,6 +7,11 @@ class CategoriesController < ApplicationController
   expose(:category)
   expose(:product) { Product.new }
 
+  def allowed?
+    if signed_in? || current_user.id == product.user_id
+    end
+  end
+
 
   def index
   end

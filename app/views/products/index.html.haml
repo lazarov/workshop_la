@@ -1,6 +1,7 @@
-%h1 Listing products
 %p#notice= notice
 %p#error= flash[:error]
+%h1 Listing products
+
 
 %table
   %tr
@@ -16,6 +17,7 @@
       %td= product.title
       %td= product.description
       %td= product.price
+    - if user_signed_in?
       %td= link_to 'Show', category_product_path(product.category, product)
       %td= link_to 'Edit', edit_category_product_path(product.category, product)
       %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }

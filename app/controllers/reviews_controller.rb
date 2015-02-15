@@ -3,6 +3,9 @@ class ReviewsController < ApplicationController
   expose(:review)
   expose(:product)
 
+  def show
+  end
+
   def edit
   end
 
