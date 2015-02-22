@@ -112,6 +112,9 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     libv8 (3.16.14.7)
+    linguistics (2.0.3)
+      loggability (~> 0.7)
+    loggability (0.11.0)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
@@ -238,6 +241,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   konf
+  linguistics
   pg
   pry
   quiet_assets

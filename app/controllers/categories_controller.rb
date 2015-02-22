@@ -12,6 +12,9 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def hello
+    @now = DateTime.now
+  end
 
   def index
   end

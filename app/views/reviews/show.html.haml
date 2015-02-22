@@ -1,0 +1,26 @@
+%p#notice= notice
+
+- if flash[:error]
+  #error= flash[:error]
+
+%p
+  %b Title:
+  = product.title
+%p
+  %b Description:
+  = product.description
+%p
+  %b Price:
+  = product.price
+
+%p
+  %b Category
+  = product.category.name
+
+= render reviews
+
+%br
+
+= link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
+
+= link_to 'Back', category_products_path, class: 'btn btn-primary'

@@ -1,9 +1,12 @@
 %p#notice= notice
-%p#error= flash[:error]
-%h1 Listing products
+- if flash[:error]
+  %p#error= flash[:error]
 
+%h2.glyphicon.glyphicon-folder-open &nbsp Listing products
 
-%table
+%br/
+
+%table.table-bordered
   %tr
     %th Title
     %th Description
@@ -17,9 +20,7 @@
       %td= product.title
       %td= product.description
       %td= product.price
-    - if user_signed_in?
-      %td= link_to 'Show', category_product_path(product.category, product)
-      %td= link_to 'Edit', edit_category_product_path(product.category, product)
-      %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
+      - if user_signed_in?
+        %td= link_to 'Show', category_product_path(product.category, product), class: 'btn-sm btn-primary'
+        %td= link_to 'Edit', edit_category_product_path(product.category, product), class: 'btn-sm btn-warning'
+        %td= link_to 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-sm btn-danger'

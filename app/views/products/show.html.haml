@@ -1,5 +1,7 @@
 %p#notice= notice
-%p#error= flash[:error]
+
+- if flash[:error]
+  #error= flash[:error]
 
 %p
   %b Title:
@@ -17,6 +19,8 @@
 
 %h3 Reviews
 = render 'reviews/form'
+%br/
+%b Users reviews:
 
 = render reviews
 

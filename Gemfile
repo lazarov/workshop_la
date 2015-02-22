@@ -25,6 +25,7 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'spring'
   gem 'pry'
+  gem 'linguistics'
 end
 
 group :development, :test do

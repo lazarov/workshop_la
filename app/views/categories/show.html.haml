@@ -1,4 +1,5 @@
 %p#notice= notice
+binding pry
 %p#error= flash[:error]
 
 %p
@@ -8,7 +9,7 @@
 %p
   %b Product:
   - category.products.each do |product|
-    = product.title
+    = link_to product.title, category_product_path(category.id,product.id)
 
 - if user_signed_in?
   = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary btn-sm'

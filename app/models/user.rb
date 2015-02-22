@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessor :firstname, :lastname
+  #attr_accessor :firstname, :lastname
+
+
   validates_presence_of :firstname, :lastname
 
   has_many :reviews
@@ -13,5 +15,11 @@ class User < ActiveRecord::Base
   def admin?
     self.admin == true
   end
+
+  # before_create :record_signup
+  #
+  # def record_signup
+  #   binding.pry
+  # end
 
 end

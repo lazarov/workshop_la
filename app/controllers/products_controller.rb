@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   def is_owner
   #  binding.pry
     if !signed_in? || current_user.id != product.user_id
-    flash[:error] = 'You are not allowed to edit this product.'
+      flash[:error] = 'You are not allowed to edit this product.'
       redirect_to(category_product_url(category, product))
     end
   end
@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    #@reviews = ReviewDecorator.decorate_collection(reviews)
   end
 
   def new
@@ -34,6 +35,7 @@ class ProductsController < ApplicationController
 
     if product.save
       category.products << product
+      current_user.products << product
       redirect_to category_product_url(category, product), notice: 'Product was successfully created.'
     else
       render action: 'new'
@@ -58,5 +60,6 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_id)
+
   end
 end

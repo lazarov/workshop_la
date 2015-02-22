@@ -1,5 +1,12 @@
-%p#error= flash[:error]
+%p.error= flash.now[:error]
+
 %h2.glyphicon.glyphicon-folder-open &nbsp Listing categories
+%br/
+%br/
+
+- if flash[:error]
+  #error = flash[:error]
+
 
 %table.table-bordered
   %tr
@@ -7,10 +14,12 @@
     %th
     %th
     %th
+    %th
 
   - categories.each do |category|
     %tr
       %td= category.name
+      %td &nbsp
       %td= link_to 'Show', category, class: 'btn btn-primary btn-sm'
       -if user_signed_in?
         %td= link_to 'Edit', edit_category_path(category), class: 'btn btn-warning btn-sm'
