@@ -8,7 +8,7 @@
   #error = flash[:error]
 
 
-%table.table-bordered
+%table.table-condensed
   %tr
     %th Name
     %th
@@ -19,13 +19,13 @@
   - categories.each do |category|
     %tr
       %td= category.name
-      %td &nbsp
+      %td
       %td= link_to 'Show', category, class: 'btn btn-primary btn-sm'
-      -if user_signed_in?
+      -if user_admin?
         %td= link_to 'Edit', edit_category_path(category), class: 'btn btn-warning btn-sm'
         %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'
 
 %br
 
-  - if user_signed_in?
+  - if user_admin?
     = link_to 'New Category', new_category_path, class: 'btn btn-success'

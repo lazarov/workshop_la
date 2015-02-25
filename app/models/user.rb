@@ -12,9 +12,9 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :products
 
-  def admin?
-    self.admin == true
-  end
+  # def admin?
+  #   self.admin == true
+  # end
 
   # before_create :record_signup
   #

@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def allowed?
-    if signed_in? && current_user.id == product.user_id
+    if signed_in? && current_user.id == product.user_id || current_user.admin?
     end
   end
 

@@ -1,19 +1,21 @@
 %p#notice= notice
-binding pry
 %p#error= flash[:error]
 
 %p
   %b Category:
   = category.name
 
-%p
-  %b Product:
-  - category.products.each do |product|
-    = link_to product.title, category_product_path(category.id,product.id)
-
-- if user_signed_in?
+- if user_admin?
   = link_to 'Edit', edit_category_path(category), class: 'btn btn-primary btn-sm'
-  = link_to 'Back', categories_path, class: 'btn btn-primary btn-sm'
+= link_to 'Back', categories_path, class: 'btn btn-primary btn-sm'
+
+%br/
+
+%p
+  %b Products:
+  - category.products.each do |product|
+    %ul
+    = link_to product.title, category_product_path(category.id,product.id)
 
   %br
   %br
@@ -22,4 +24,4 @@ binding pry
     %h4 New product
   %br
 
-    = render 'products/form'
+  = render 'products/form'
