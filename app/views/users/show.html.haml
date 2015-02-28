@@ -1,19 +1,23 @@
 %h1 User Profile
 
-//= form_for @user do |f|
+= form_for current_user do |f|
 
   %ul
     %li= f.label :First_Name
-    = f.text_field :firstname
+    = current_user.firstname
 
     %li= f.label :Last_Name
-    = f.text_field :lastname
+    = current_user.lastname
 
     %li= f.label :email
-    = f.text_field :email
+    = current_user.email
 
     %li= f.label :account_created
-    = f.text_field :created_at
+    = current_user.created_at
 
     %li= f.label :reviews
-    = f.text_field :reviews
+    - current_user.reviews.recent.each do | review |
+      %ul
+      Content: #{review.content}
+      %ul
+        Rating: #{review.rating}

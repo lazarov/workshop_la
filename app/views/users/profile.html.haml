@@ -2,7 +2,7 @@
 
 = form_for current_user do |f|
 
-  %ul
+%ul
     %li= f.label :First_Name
     = current_user.firstname
 
@@ -16,4 +16,6 @@
     = current_user.created_at
 
     %li= f.label :reviews
-    = current_user.reviews
+    = current_user.reviews.recent.each do | review |
+    %ul
+      = review.content

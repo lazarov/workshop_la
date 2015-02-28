@@ -2,18 +2,19 @@ class ReviewsController < ApplicationController
 
   expose(:review)
   expose(:product)
+  expose_decorated(:review)
 
   def show
   end
 
-  def edit
+  def editt
   end
 
   def create
     self.review = Review.new(review_params)
+    current_user.reviews << review
     if review.save
       product.reviews << review
-      current_user.reviews << review
       redirect_to category_product_url(product.category, product), notice: 'Review was successfully created.'
     else
       render action: 'new'

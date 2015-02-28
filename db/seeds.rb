@@ -59,24 +59,24 @@ Review.destroy_all
                        lastname: Faker::Name.last_name,
                           email: Faker::Internet.email,
                        password: Faker::Internet.password(8))
-  user.save
   #puts user.inspect
   category = Category.create!( name: Faker::Product.brand )
   #puts category.inspect
-  category.save
 
   if ( !category.nil? )
     (rand(1..3)).times do
-      category.product.create(title: Faker::Product.product_name,
+      product = category.products.create!(title: Faker::Product.product_name,
                         description: Faker::Lorem.paragraph,
                               price: rand(1..99))
-      product.save
-    end
-  end
-  if ( !product.nil? && !user.nil? )
-    (rand(1..4)).times do
-      product.review.create(content: Faker::Lorem.sentence,
-                             rating: rand(1..5))
-    end
-  end
+
+      if ( !product.nil? && !user.nil? )
+        (rand(1..4)).times do
+          review = product.reviews.create!(content: Faker::Lorem.sentence,
+                                            rating: rand(1..5),
+                                           user_id: user.id)
+        #  user.reviews << review
+        end
+     end
+   end
+ end
 end

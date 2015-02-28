@@ -49,13 +49,11 @@ describe ProductsController do
       describe 'with valid params' do
         it 'redirects to product page' do
           get :edit, { id: product.to_param, category_id: category.to_param }
-          binding.pry
           expect(response).to redirect_to(category_product_url(category, product))
         end
 
         it 'renders error message' do
           get :edit, { id: product.to_param, category_id: category.to_param }
-          binding.pry
           expect(controller.flash[:error]).to eq 'You are not allowed to edit this product.'
         end
       end

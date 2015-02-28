@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'users/profile' 
-  #get 'users/:id', :to => 'users#profile', :as => :user
+  get 'users/profile' => 'users#show'
+
 
   devise_for :admins
   devise_for :users

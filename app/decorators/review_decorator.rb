@@ -5,4 +5,7 @@ class ReviewDecorator < Draper::Decorator
     "#{ user.firstname } #{ user.lastname }"
   end
 
+  def user_reviews
+    review.content
+  end
 end
