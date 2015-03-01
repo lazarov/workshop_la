@@ -9,11 +9,12 @@
     = javascript_include_tag 'application'
 
   %body
+
     .container
       %nav.navbar.navbar-custom.jumbotron
         .navbar-header
           .navbar-text.navbar-left #{AppConfig.workshops_name}
-          .navbar-text.navbar-left #{link_to "All Categories", categories_path, class: 'btn btn-default'}
+        .navbar-text.navbar-left #{link_to "All Categories", categories_path, class: 'btn btn-default'}
         %p.navbar-brand.navbar-right
           - if user_signed_in?
             %strong Welcome! #{ current_user.firstname.titleize }
@@ -24,7 +25,7 @@
             = link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'
             = link_to "Sign In", new_user_session_path, class: 'btn btn-primary'
 
-    #wrapper.container.jumbotron
+    .container.jumbotron
       .row
         .col-md-12
           = yield

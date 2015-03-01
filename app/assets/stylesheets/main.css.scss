@@ -1,9 +1,29 @@
-#wrapper {
-  width: 300;
-  border: 1px #9faeb6 solid;
-  border-radius: 5px;
+body {
+  padding-top: 10px;
 }
 
-body {
- padding: 10px
+@media (min-width: 992px) {
+  .container {
+    width: 990px;
+  }
+}
+
+.container {
+
+  border-radius: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+
+}
+
+.container .jumbotrone {
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px #9faeb6 solid;
+}
+
+.row {
+  padding-left: 45px;
+  padding-right: 45px;
 }
