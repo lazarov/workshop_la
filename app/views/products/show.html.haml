@@ -14,14 +14,14 @@
   = product.price
 
 %p
-  %b Category
+  %b Category:
   = product.category.name
 - if user_signed_in?
   %h3 Reviews
   = render 'reviews/form'
 
 %br/
-%b Users reviews:
+%h3 Users reviews:
 
 = render reviews
 
@@ -29,5 +29,4 @@
 %br/
 - if user_owner?
   = link_to 'Edit', edit_category_product_path(category.id, product.id), class: 'btn btn-primary'
-
 = link_to 'Back', category_path(category.id), class: 'btn btn-primary'
