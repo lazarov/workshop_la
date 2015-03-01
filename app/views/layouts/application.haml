@@ -11,10 +11,10 @@
   %body
 
     .container
-      %nav.navbar.navbar-custom.jumbotron
+      %nav.navbar.navbar-custom
         .navbar-header
           .navbar-text.navbar-left #{AppConfig.workshops_name}
-        .navbar-text.navbar-left #{link_to "All Categories", categories_path, class: 'btn btn-default'}
+          .navbar-text.navbar-left #{link_to "All Categories", categories_path, class: 'btn btn-default'}
         %p.navbar-brand.navbar-right
           - if user_signed_in?
             %strong Welcome! #{ current_user.firstname.titleize }
