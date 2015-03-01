@@ -37,9 +37,10 @@ User.create!(firstname: 'Tomek', lastname: 'Kruk', email: 'tkruk@kot.pl', passwo
 
       if ( !product.nil? && !user.nil? )
         (rand(1..6)).times do
+          u_id = User.order(id: :desc).limit(5).pluck(:id)
           review = product.reviews.create!(content: Faker::Lorem.sentence,
                                             rating: rand(1..5),
-                                           user_id: user.id)
+                                           user_id: u_id[rand(u_id.length)])
         #  user.reviews << review
         end
      end
