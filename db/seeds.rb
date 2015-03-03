@@ -18,9 +18,12 @@ Review.destroy_all
 
 User.create!(firstname: 'Jan', lastname: 'Pies', email: 'jpies@pl.pl', admin: true, password: 'password')
 User.create!(firstname: 'Adam', lastname: 'Kot', email: 'akot@kot.pl', password: 'password')
-User.create!(firstname: 'Tomek', lastname: 'Kruk', email: 'tkruk@kot.pl', password: 'password')
+User.create!(firstname: 'Tomek', lastname: 'Kruk', email: 'tkruk@kruk.pl', password: 'password')
+User.create!(firstname: 'Kamil', lastname: 'Szpak', email: 'kszpak@szpak.pl', password: 'password')
+User.create!(firstname: 'Jarek', lastname: 'Owad', email: 'jowad@owad.pl', password: 'password')
+User.create!(firstname: 'Marek', lastname: 'Bak', email: 'mbak@owad.pl', password: 'password')
 
-8.times do
+7.times do
   user = User.create!(firstname: Faker::Name.first_name,
                        lastname: Faker::Name.last_name,
                           email: Faker::Internet.email,
@@ -36,8 +39,8 @@ User.create!(firstname: 'Tomek', lastname: 'Kruk', email: 'tkruk@kot.pl', passwo
                               price: rand(1..99))
 
       if ( !product.nil? && !user.nil? )
-        (rand(1..6)).times do
-          u_id = User.order(id: :desc).limit(5).pluck(:id)
+        (rand(1..7)).times do
+          u_id = User.order(id: :desc).limit(13).pluck(:id)
           review = product.reviews.create!(content: Faker::Lorem.sentence,
                                             rating: rand(1..5),
                                            user_id: u_id[rand(u_id.length)])
