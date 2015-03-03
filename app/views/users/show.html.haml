@@ -15,7 +15,5 @@
     %li.list-group-item #{f.label :reviews } :
     - current_user.reviews.recent.each do | review |
       %ul.list-group-item Content: #{review.content}
-      %ul.list-group-item
-        Rating: #{review.rating} --->
-        Date: #{review.created_at.to_s(:date_f)}
+      %li.list-group-item Rating: #{review.rating} |  Date: #{review.created_at.to_s(:date_f)}
       %br/

@@ -25,6 +25,7 @@ gem 'rails_12factor', group: :production
 group :development do
   gem 'spring'
   gem 'pry'
+  gem 'foreman'
 end
 
 group :development, :test do
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'pry'
+  gem 'foreman'
 end
 
 group :test do
