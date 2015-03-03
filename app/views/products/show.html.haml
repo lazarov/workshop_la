@@ -17,12 +17,15 @@
   %b Category:
   = product.category.name
 - if user_signed_in?
-  %h3 Reviews
+  %h4 Review
+  %br/
+
   = render 'reviews/form'
 
 %br/
-%h3 Users reviews:
+%h4 Users reviews:
 
+%br/
 = render reviews
 
 

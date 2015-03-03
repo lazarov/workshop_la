@@ -7,12 +7,6 @@ class CategoriesController < ApplicationController
   expose(:category)
   expose(:product) { Product.new }
 
-
-
-  def hello
-    @now = DateTime.now
-  end
-
   def index
   end
 

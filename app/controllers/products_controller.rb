@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    #@reviews = ReviewDecorator.decorate_collection(reviews)
   end
 
   def new

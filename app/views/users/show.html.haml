@@ -2,15 +2,20 @@
 
 = form_for current_user do |f|
 
-  %ul.list-group
+  %ul#user_info.list-group
     %li.list-group-item #{f.label :First_Name} : #{current_user.firstname}
     %li.list-group-item #{f.label :Last_Name} : #{current_user.lastname}
     %li.list-group-item #{f.label :email} : #{current_user.email}
     %li.list-group-item #{f.label :account_created} : #{current_user.created_at}
+    %li.list-group-item #{f.label :Current_ip} : #{current_user.current_sign_in_ip}
+    %li.list-group-item #{f.label :Last_sign_in} : #{current_user.last_sign_in_at}
+    %li.list-group-item #{f.label :Admin} : #{current_user.admin}
 
-  %ul.list-group
+  %ul#review.list-group
     %li.list-group-item #{f.label :reviews } :
     - current_user.reviews.recent.each do | review |
       %ul.list-group-item Content: #{review.content}
-      %ul
-        Rating: #{review.rating}
+      %ul.list-group-item
+        Rating: #{review.rating} --->
+        Date: #{review.created_at.to_s(:date_f)}
+      %br/
