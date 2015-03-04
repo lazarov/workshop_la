@@ -9,7 +9,6 @@
     = javascript_include_tag 'application'
 
   %body
-
     .container
       %nav.navbar.navbar-custom
         .navbar-header
@@ -28,4 +27,6 @@
     .container.jumbotron
       .row
         .col-md-12
+          - flash.each do | name, msg |
+            = content_tag :div, msg, :id => name
           = yield
